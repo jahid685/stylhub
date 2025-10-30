@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+        <!-- Header -->
+       {% include 'includes/hader.html' %}
+
+        <!-- page-title -->
+        <div class="tf-page-title style-2">
+            <div class="container-full">
+                <div class="heading text-center">Privacy Policy</div>
+            </div>
+        </div>
+        <!-- /page-title -->
+        <!-- main-page -->
+        <section class="flat-spacing-25">
+            <div class="container">
+                <div class="tf-main-area-page">
+                    <h4>The Company Private Limited Policy</h4>
+                    <p>The Company Private Limited and each of their respective subsidiary, parent and affiliated companies is deemed to operate this Website (“we” or “us”) recognizes that you care how information about you is used and shared. We have created this Privacy Policy to inform you what information we collect on the Website, how we use your information and the choices you have about the way your information is collected and used. Please read this Privacy Policy carefully. Your use of the Website indicates that you have read and accepted our privacy practices, as outlined in this Privacy Policy.</p>
+                    <p>Please be advised that the practices described in this Privacy Policy apply to information gathered by us or our subsidiaries, affiliates or agents: (i) through this Website, (ii) where applicable, through our Customer Service Department in connection with this Website, (iii) through information provided to us in our free standing retail stores, and (iv) through information provided to us in conjunction with marketing promotions and sweepstakes.</p>
+                    <p>We are not responsible for the content or privacy practices on any websites.</p>
+                    <p>We reserve the right, in our sole discretion, to modify, update, add to, discontinue, remove or otherwise change any portion of this Privacy Policy, in whole or in part, at any time. When we amend this Privacy Policy, we will revise the “last updated” date located at the top of this Privacy Policy.</p>
+                    <p>If you provide information to us or access or use the Website in any way after this Privacy Policy has been changed, you will be deemed to have unconditionally consented and agreed to such changes. The most current version of this Privacy Policy will be available on the Website and will supersede all previous versions of this Privacy Policy.</p>
+                    <p>If you have any questions regarding this Privacy Policy, you should contact our Customer Service Department by email at marketing@company.com</p>
+                </div>
+            </div>
+        </section>
+        <!-- /main-page -->
+        <!-- Footer -->
+      {% include 'includes/footer.html' %}
+        <!-- /Footer -->
+
+    </div>
+    <!-- gotop -->
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 286.138;"></path>
+        </svg>
+    </div>
+    <!-- /gotop -->
+    <!-- toolbar-bottom -->
+    <div class="tf-toolbar-bottom type-1150">
+        <div class="toolbar-item">
+            <a href="#toolbarShopmb" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft">
+                <div class="toolbar-icon">
+                    <i class="icon-shop"></i>
+                </div>
+                <div class="toolbar-label">Shop</div>
+            </a>
+        </div>
+
+        <div class="toolbar-item">
+            <a href="#canvasSearch" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft">
+                <div class="toolbar-icon">
+                    <i class="icon-search"></i>
+                </div>
+                <div class="toolbar-label">Search</div>
+            </a>
+        </div>
+        <div class="toolbar-item">
+            <a href="#login" data-bs-toggle="modal">
+                <div class="toolbar-icon">
+                    <i class="icon-account"></i>
+                </div>
+                <div class="toolbar-label">Account</div>
+            </a>
+        </div>
+        <div class="toolbar-item">
+            <a href="#">
+                <div class="toolbar-icon">
+                    <i class="icon-heart"></i>
+                    <div class="toolbar-count">0</div>
+                </div>
+                <div class="toolbar-label">Wishlist</div>
+            </a>
+        </div>
+        <div class="toolbar-item">
+            <a href="#shoppingCart" data-bs-toggle="modal">
+                <div class="toolbar-icon">
+                    <i class="icon-bag"></i>
+                    <div class="toolbar-count">1</div>
+                </div>
+                <div class="toolbar-label">Cart</div>
+            </a>
+        </div>
+    </div>
+    <!-- /toolbar-bottom -->
+
+    <!-- modalDemo -->
+ {% include 'includes/modalDemo.html' %}
+    <!-- /modalDemo -->
+
+    <!-- canvasSearch -->
+ {% include 'includes/canvasSearch.html' %}
+    <!-- /canvasSearch -->
+
+    <!-- toolbarShopmb -->
+ {% include 'includes/toolbarShopmb.html' %}
+    <!-- /toolbarShopmb -->
+
+    <!-- modal login -->
+ {% include 'includes/modal_login.html' %}
+    <!-- /modal login -->
+
+    <!-- shoppingCart -->
+ {% include 'includes/shoppingCart.html' %}
+    <!-- /shoppingCart -->
+
+    <!-- modal compare -->
+ {% include 'includes/modalcompare.html' %}
+    <!-- /modal compare -->
+
+    <!-- modal quick_add -->
+ {% include 'includes/quick_add.html' %}
+    <!-- /modal quick_add -->
+
+    <!-- modal quick_view -->
+ {% include 'includes/quick_view.html' %}
+    <!-- /modal quick_view -->
+
+    <!-- modal find_size -->
+ {% include 'includes/find_size.html' %}
+    <!-- /modal find_size -->
+
+{% endblock %}

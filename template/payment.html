@@ -1,0 +1,197 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+        <!-- Header -->
+       {% include 'includes/hader.html' %}
+        <!-- page-cart -->
+      <section class="invoice-section">
+        <div class="cus-container2">
+            <div class="top">
+                <a href="#" class="tf-btn btn-fill animate-hover-btn">
+                    Print this invoice 
+                </a>
+            </div>
+            <div class="box-invoice">
+                <div class="header">
+                    <div class="wrap-top">
+                        <div class="box-left">
+                            <a href="index.html">
+                                <img src="/statc/images/logo/stylehub.png" width="50%" alt="logo" class="logo">
+                            </a>
+                        </div>
+                        <div class="box-right">
+                            <div class="d-flex justify-content-between align-items-center flex-wrap">
+                                <div class="title">Invoice #</div>
+                                <span class="code-num">{{order.order_number}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wrap-date">
+                        <div class="box-left">
+                            <label for="">Invoice date:</label>
+                            <span class="date">03/10/2024</span>
+                        </div>
+                        <div class="box-right">
+                            <label for="">order date:</label>
+                            <span class="date">{{order.created_at}}</span>
+                        </div>
+                    </div>
+                    <div class="wrap-info">
+                        <div class="box-left">
+                            <div class="title">Supplier</div>
+                            <div class="sub">Styal Hub</div>
+                            <p class="desc">84/A,Poroma Goli Shout Pirer Bagh Mirpur,
+                              <br>  Dhaka,1216</p>
+                        </div>
+                        <div class="box-right">
+                            <div class="title">Customer</div>
+                            <div class="sub">{{order.full_name}}</div>
+                            <p class="desc">{{order.full_address}}  <br> {{order.city}}</p>
+                        </div>
+                    </div>
+                {% for cart_item in cart_items %}
+                    <div class="wrap-table-invoice">
+                        <table class="invoice-table">
+                            <thead>
+                                <tr class="title">
+                                    <th>Description</th>
+                                    <th>Quentity</th>
+                                    <th>Price</th>
+                                    <th>Delevary Charge</th>
+                                    <th>Total</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="content">
+                                    <td>{{ cart_item.product.product_name }}</td>
+                                    <td>{{ cart_item.quantity }}</td>
+                                    <td>${{ cart_item.product.price }}</td>
+                                    <td>{{tax}}</td>
+                                    <td>{{total}}</td>
+                                </tr>
+                     {% endfor %}
+                                <tr class="content">
+                                    <td class="total">Total bill</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="total">${{grand_total}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </div>
+                <div class="footer">
+                    <ul class="box-contact">
+                        <li>www.stulhub.com</li>
+                        <li>invoice@stylehub.com</li>
+                        <li>01631020909</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+            
+    </section>
+        <!-- page-cart -->
+
+        <!-- footer -->
+         {% include 'includes/footer.html' %}
+        <!-- /footer -->
+
+    </div>
+
+    <!-- gotop -->
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 286.138;"></path>
+        </svg>
+    </div>
+    <!-- /gotop -->
+
+    <!-- toolbar-bottom -->
+    <div class="tf-toolbar-bottom type-1150">
+        <div class="toolbar-item">
+            <a href="#toolbarShopmb" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft">
+                <div class="toolbar-icon">
+                    <i class="icon-shop"></i>
+                </div>
+                <div class="toolbar-label">Shop</div>
+            </a>
+        </div>
+
+        <div class="toolbar-item">
+            <a href="#canvasSearch" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft">
+                <div class="toolbar-icon">
+                    <i class="icon-search"></i>
+                </div>
+                <div class="toolbar-label">Search</div>
+            </a>
+        </div>
+        <div class="toolbar-item">
+            <a href="#login" data-bs-toggle="modal">
+                <div class="toolbar-icon">
+                    <i class="icon-account"></i>
+                </div>
+                <div class="toolbar-label">Account</div>
+            </a>
+        </div>
+        <div class="toolbar-item">
+            <a href="wishlist.html">
+                <div class="toolbar-icon">
+                    <i class="icon-heart"></i>
+                    <div class="toolbar-count">0</div>
+                </div>
+                <div class="toolbar-label">Wishlist</div>
+            </a>
+        </div>
+        <div class="toolbar-item">
+            <a href="#shoppingCart" data-bs-toggle="modal">
+                <div class="toolbar-icon">
+                    <i class="icon-bag"></i>
+                    <div class="toolbar-count">1</div>
+                </div>
+                <div class="toolbar-label">Cart</div>
+            </a>
+        </div>
+    </div>
+    <!-- /toolbar-bottom -->
+
+    <!-- modalDemo -->
+
+    <!-- /modalDemo -->
+
+    <!-- mobile menu -->
+
+    <!-- /mobile menu -->
+
+    <!-- canvasSearch -->
+
+    <!-- /canvasSearch -->
+
+    <!-- toolbarShopmb -->
+
+    <!-- /toolbarShopmb -->
+
+    <!-- modal login -->
+
+    <!-- /modal login -->
+
+    <!-- modal compare -->
+
+    <!-- /modal compare -->
+
+    <!-- modal quick_add -->
+
+    <!-- /modal quick_add -->
+
+    <!-- modal quick_view -->
+
+    <!-- /modal quick_view -->
+
+    <!-- modal find_size -->
+
+    <!-- /modal find_size -->
+
+{% endblock %}

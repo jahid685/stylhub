@@ -1,0 +1,259 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+        <!-- Header -->
+       {% include 'includes/hader.html' %}
+        <!-- /Header -->
+
+        <!-- page-title -->
+        <div class="tf-page-title">
+            <div class="container-full">
+                <div class="heading text-center">payment details</div>
+            </div>
+        </div>
+        <!-- /page-title -->
+
+        <!-- page-cart -->
+        <section class="flat-spacing-11">
+            <div class="container">
+                <div class="tf-page-cart-wrap layout-2">
+                    <div class="tf-page-cart-item">
+                        <h5 class="fw-5 mb_20">payment details</h5>
+                        <div class="box-invoice">
+                            <div class="header">
+                              <div class="box-left">
+                                <h5 class="fw-5 mb_20">Customer details</h5>
+                              </div>
+                                <div class="wrap-info">
+                                    <div class="box-left">
+                                        <div class="title">Customer details</div>
+                                        <div class="sub">{{order.full_name}}</div>
+                                        <p class="desc">{{order.email}},
+                                          <br>{{order.phone}}</p>
+                                    </div>
+                                    <div class="box-right">
+                                        <div class="title">Customer Address</div>
+                                        <div class="sub">{{order.full_address}}</div>
+                                        <p class="desc">{{order.city}} <br> {{order.state}}</p>
+                                    </div>
+                                </div>
+                                <div class="box-left">
+                                  <h5 class="fw-5 mb_20">Payment Details</h5>
+                                </div>
+                                  <div class="wrap-info">
+                                      <div class="box-left">
+                                          <div class="title">Customer details</div>
+                                          <div class="sub">Jobio LLC</div>
+                                      </div>
+                                  </div>
+                                  <div class="box-left">
+                                    <h5 class="fw-5 mb_20">Order details</h5>
+                                  </div>
+                                    <div class="wrap-info">
+                                      <div class="wrap-table-invoice">
+                                          <div class="tf-page-cart-item">
+
+                                                  <table class="tf-table-page-cart">
+                                                      <thead>
+                                                          <tr>
+                                                              <th>Product</th>
+                                                              <th>Price</th>
+                                                              <th>Quantity</th>
+                                                              <th>Total</th>
+                                                          </tr>
+                                                      </thead>
+                                                      <tbody>
+                                                         {% for cart_item in cart_items %}
+                                                          <tr class="tf-cart-item file-delete">
+                                                              <td class="tf-cart-item_product">
+                                                                  <a href="product-detail.html" class="img-box">
+                                                                      <img src="{{ cart_item.product.images.url }}" alt="img-product">
+                                                                  </a>
+                                                                  <a href="{{ cart_item.product.get_url }}" class="title text-dark"></a>
+
+                                                                  <div class="cart-info">
+                                                                      <a href="{{ cart_item.product.get_url }}" class="cart-title link">{{ cart_item.product.product_name }}</a>
+                                                                        <p>
+                                                                        {% if cart_item.variations.all %}
+                                                                          {% for item in cart_item.variations.all %}
+
+                                                                            {{ item.variation_category | capfirst }} : {{ item.variation_value | capfirst }}<br>
+                                                                          {% endfor %}
+                                                                        {% endif %}
+                                                                        </p>
+                                                                        <a href="{% url 'remove_cart_item' cart_item.product.id cart_item.id %}">Remove</a>
+                                                                  </div>
+                                                              </td>
+                                                              <td class="tf-cart-item_price" cart-data-title="Price">
+                                                                  <div class="cart-price">${{ cart_item.product.price }}</div>
+                                                              </td>
+                                                              <td class="tf-cart-item_quantity" cart-data-title="Quantity">
+                                                                <div class="cart-quantity">
+
+                                                                    <div class="d-flex mb-4" style="max-width: 100px" style="height:100px">
+                                                                       <div class="wg-quantity">
+                                                                        <input type="text" name="number" value="{{ cart_item.quantity }}">
+                                                                       </div>
+                                                                  </div>
+                                                                </div>
+                                                              </td>
+
+                                                              <td class="tf-cart-item_total" cart-data-title="Total">
+                                                                  <div class="cart-total">${{ cart_item.sub_total }}</div>
+                                                              </td>
+                                                          </tr>
+                                                         {% endfor %}
+                                                      </tbody>
+                                                  </table>
+                                          </div>
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tf-page-cart-footer">
+                        <div class="tf-cart-footer-inner">
+                            <h5 class="fw-5 mb_20">Your order</h5>
+
+                            <div class="tf-page-cart-checkout widget-wrap-checkout">
+
+                                <div class="d-flex justify-content-between line pb_20">
+                                    <h6 class="fw-5">Sub Total</h6>
+                                    <h6 class="total fw-5">${{total}}USD</h6>
+                                </div>
+
+                                <div class="tf-cart-totals-discounts">
+                                    <h3>Tax</h3>
+                                    <span class="total-value">${{tax}}USD</span>
+                                </div>
+
+                                <div class="d-flex justify-content-between line pb_20">
+                                    <h6 class="fw-5">Total</h6>
+                                    <h6 class="total fw-5">${{grand_total}}USD</h6>
+                                </div>
+
+                                <div class="wd-check-payment">
+                                    <p class="text_black-2 mb_20">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <a href="privacy-policy.html" class="text-decoration-underline">privacy policy</a>.</p>
+                                    <div class="box-checkbox fieldset-radio mb_20">
+                                        <input type="checkbox" id="check-agree" class="tf-check">
+                                        <label for="check-agree" class="text_black-2">I have read and agree to the website <a href="terms-conditions.html" class="text-decoration-underline">terms and conditions</a>.</label>
+
+                                    </div>
+                                    <a  href="payment_complete/" class="tf-btn btn-fill justify-content-center fw-6 fs-16 btn-add-to-cart"><span>complete payment -&nbsp;</span><span class="tf-qty-price total-price">${{grand_total}}USD</span></a>
+                                </div>
+
+                                
+
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- page-cart -->
+
+        
+
+    
+
+        <!-- footer -->
+        <!-- Header -->
+       {% include 'includes/footer.html' %}
+        <!-- /Header -->
+        <!-- /footer -->
+
+    </div>
+
+    <!-- gotop -->
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 286.138;"></path>
+        </svg>
+    </div>
+    <!-- /gotop -->
+
+    <!-- toolbar-bottom -->
+    <div class="tf-toolbar-bottom type-1150">
+        <div class="toolbar-item">
+            <a href="#toolbarShopmb" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft">
+                <div class="toolbar-icon">
+                    <i class="icon-shop"></i>
+                </div>
+                <div class="toolbar-label">Shop</div>
+            </a>
+        </div>
+
+        <div class="toolbar-item">
+            <a href="#canvasSearch" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft">
+                <div class="toolbar-icon">
+                    <i class="icon-search"></i>
+                </div>
+                <div class="toolbar-label">Search</div>
+            </a>
+        </div>
+        <div class="toolbar-item">
+            <a href="#login" data-bs-toggle="modal">
+                <div class="toolbar-icon">
+                    <i class="icon-account"></i>
+                </div>
+                <div class="toolbar-label">Account</div>
+            </a>
+        </div>
+        <div class="toolbar-item">
+            <a href="wishlist.html">
+                <div class="toolbar-icon">
+                    <i class="icon-heart"></i>
+                    <div class="toolbar-count">0</div>
+                </div>
+                <div class="toolbar-label">Wishlist</div>
+            </a>
+        </div>
+        <div class="toolbar-item">
+            <a href="#shoppingCart" data-bs-toggle="modal">
+                <div class="toolbar-icon">
+                    <i class="icon-bag"></i>
+                    <div class="toolbar-count">1</div>
+                </div>
+                <div class="toolbar-label">Cart</div>
+            </a>
+        </div>
+    </div>
+    <!-- /toolbar-bottom -->
+
+    <!-- modalDemo -->
+ {% include 'includes/modalDemo.html' %}
+    <!-- /modalDemo -->
+
+    <!-- canvasSearch -->
+ {% include 'includes/canvasSearch.html' %}
+    <!-- /canvasSearch -->
+
+    <!-- toolbarShopmb -->
+ {% include 'includes/toolbarShopmb.html' %}
+    <!-- /toolbarShopmb -->
+
+    <!-- modal login -->
+ {% include 'includes/modal_login.html' %}
+    <!-- /modal login -->
+
+    <!-- shoppingCart -->
+ {% include 'includes/shoppingCart.html' %}
+    <!-- /shoppingCart -->
+
+    <!-- modal compare -->
+ {% include 'includes/modalcompare.html' %}
+    <!-- /modal compare -->
+
+    <!-- modal quick_add -->
+ {% include 'includes/quick_add.html' %}
+    <!-- /modal quick_add -->
+
+    <!-- modal quick_view -->
+ {% include 'includes/quick_view.html' %}
+    <!-- /modal quick_view -->
+
+    <!-- modal find_size -->
+ {% include 'includes/find_size.html' %}
+    <!-- /modal find_size -->
+
+{% endblock %}

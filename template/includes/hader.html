@@ -1,0 +1,244 @@
+
+
+<!-- Top Bar -->
+<div class="tf-top-bar bg_white line">
+    <div class="px_15 lg-px_40">
+        <div class="tf-top-bar_wrap grid-3 gap-30 align-items-center">
+            <ul class="tf-top-bar_item tf-social-icon d-flex gap-10">
+                <li><a href="#" class="box-icon w_28 round social-facebook bg_line"><i class="icon fs-12 icon-fb"></i></a></li>
+                <li><a href="#" class="box-icon w_28 round social-twiter bg_line"><i class="icon fs-10 icon-Icon-x"></i></a></li>
+                <li><a href="#" class="box-icon w_28 round social-instagram bg_line"><i class="icon fs-12 icon-instagram"></i></a></li>
+                <li><a href="#" class="box-icon w_28 round social-tiktok bg_line"><i class="icon fs-12 icon-tiktok"></i></a></li>
+                <li><a href="#" class="box-icon w_28 round social-pinterest bg_line"><i class="icon fs-12 icon-pinterest-1"></i></a></li>
+            </ul>
+            <div class="text-center overflow-hidden">
+                <div dir="ltr" class="swiper tf-sw-top_bar" data-preview="1" data-space="0" data-loop="true" data-speed="1000" data-delay="2000">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <p class="top-bar-text fw-5">Spring Fashion Sale <a href="shop-default.html" title="all collection" class="tf-btn btn-line">Shop now<i class="icon icon-arrow1-top-left"></i></a></p>
+                        </div>
+                        <div class="swiper-slide">
+                            <p class="top-bar-text fw-5">Summer sale discount off 70%</p>
+                        </div>
+                        <div class="swiper-slide">
+                            <p class="top-bar-text fw-5">Time to refresh your wardrobe.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="top-bar-language tf-cur justify-content-end">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Top Bar -->
+
+<!-- Header -->
+<header id="header" class="header-default header-absolute">
+    <div class="px_15 lg-px_40">
+        <div class="row wrapper-header align-items-center">
+            <div class="col-md-4 col-3 tf-lg-hidden">
+                <a href="#mobileMenu" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="16" viewBox="0 0 24 16" fill="none">
+                        <path d="M2.00056 2.28571H16.8577C17.1608 2.28571 17.4515 2.16531 17.6658 1.95098C17.8802 1.73665 18.0006 1.44596 18.0006 1.14286C18.0006 0.839753 17.8802 0.549063 17.6658 0.334735C17.4515 0.120408 17.1608 0 16.8577 0H2.00056C1.69745 0 1.40676 0.120408 1.19244 0.334735C0.978109 0.549063 0.857702 0.839753 0.857702 1.14286C0.857702 1.44596 0.978109 1.73665 1.19244 1.95098C1.40676 2.16531 1.69745 2.28571 2.00056 2.28571ZM0.857702 8C0.857702 7.6969 0.978109 7.40621 1.19244 7.19188C1.40676 6.97755 1.69745 6.85714 2.00056 6.85714H22.572C22.8751 6.85714 23.1658 6.97755 23.3801 7.19188C23.5944 7.40621 23.7148 7.6969 23.7148 8C23.7148 8.30311 23.5944 8.59379 23.3801 8.80812C23.1658 9.02245 22.8751 9.14286 22.572 9.14286H2.00056C1.69745 9.14286 1.40676 9.02245 1.19244 8.80812C0.978109 8.59379 0.857702 8.30311 0.857702 8ZM0.857702 14.8571C0.857702 14.554 0.978109 14.2633 1.19244 14.049C1.40676 13.8347 1.69745 13.7143 2.00056 13.7143H12.2863C12.5894 13.7143 12.8801 13.8347 13.0944 14.049C13.3087 14.2633 13.4291 14.554 13.4291 14.8571C13.4291 15.1602 13.3087 15.4509 13.0944 15.6653C12.8801 15.8796 12.5894 16 12.2863 16H2.00056C1.69745 16 1.40676 15.8796 1.19244 15.6653C0.978109 15.4509 0.857702 15.1602 0.857702 14.8571Z" fill="currentColor"></path>
+                    </svg>
+                </a>
+            </div>
+            <div class="col-xl-3 col-md-4 col-6">
+                <a href="index.html" class="logo-header">
+                    <img src="/statc/images/logo/stylehub.png" alt="logo" class="logo">
+                </a>
+            </div>
+            <div class="col-xl-6 tf-md-hidden">
+                <nav class="box-navigation text-center">
+                    <ul class="box-nav-ul d-flex align-items-center justify-content-center gap-30">
+                        <li class="menu-item">
+                            <a href="{% url 'home' %}" class="item-link">Home</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="{% url 'catalog' %}" class="item-link">Shop</a>
+                        </li>
+
+                        <li class="menu-item position-relative">
+                            <a href="#" class="item-link">Pages<i class="icon icon-arrow-down"></i></a>
+                            <div class="sub-menu submenu-default">
+                                <ul class="menu-list">
+                                    <li>
+                                        <a href="{% url 'about_us' %}" class="menu-link-text link text_black-2">About us</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'contact' %}" class="menu-link-text link text_black-2 position-relative">Contact</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'faq' %}" class="menu-link-text link text_black-2 position-relative">FAQ</a>
+                                    </li>
+                                    <li>
+                                        <a href="{% url 'our_store' %}" class="menu-link-text link text_black-2 position-relative">Store</a>
+                                    </li>
+                                    <li><a href="timeline.html" class="menu-link-text link text_black-2 position-relative">Timeline <div class="demo-label"><span class="demo-new">New</span></div> </a></li>               
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="menu-item">
+                            <a href="{% url 'login' %}" class="item-link">Login</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-xl-3 col-md-4 col-3">
+                <ul class="nav-icon d-flex justify-content-end align-items-center gap-20">
+                    <li class="nav-search"><a href="#canvasSearch" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft" class="nav-icon-item"><i class="icon icon-search"></i></a></li>
+                    <li class="nav-account"><a href="{% url 'login' %}" data-bs-toggle="modal" class="nav-icon-item"><i class="icon icon-account"></i></a></li>
+                    <li class="nav-wishlist"><a href="wishlist.html" class="nav-icon-item"><i class="icon icon-heart"></i><span class="count-box">{{cart_count}}</span></a></li>
+                    <li class="nav-cart"><a href="{% url 'cart' %}" data-bs-toggle="modal" class="nav-icon-item"><i class="icon icon-bag"></i><span class="count-box">{{cart_count}}</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- /Header -->
+
+
+<!-- mobile menu -->
+<div class="offcanvas offcanvas-start canvas-mb" id="mobileMenu">
+    <span class="icon-close icon-close-popup" data-bs-dismiss="offcanvas" aria-label="Close"></span>
+    <div class="mb-canvas-content">
+        <div class="mb-body">
+            <ul class="nav-ul-mb" id="wrapper-menu-navigation">
+                <li class="nav-mb-item">
+                  <a href="#dropdown-menu-one" class="collapsed mb-menu-link current" data-bs-toggle="collapse" aria-expanded="true" aria-controls="dropdown-menu-one">
+                           <span>Home</span>
+                           <span class="btn-open-sub"></span>
+                       </a>
+                       <div id="dropdown-menu-one" class="collapse">
+                           <ul class="sub-nav-menu" >
+                               <li><a href="{% url 'home' %}" class="sub-nav-link">Home Page</a></li>
+                           </ul>
+                       </div>
+                </li>
+                <li class="nav-mb-item">
+                    <a href="#dropdown-menu-five" class="collapsed mb-menu-link current" data-bs-toggle="collapse" aria-expanded="true" aria-controls="dropdown-menu-five">
+                        <span>Shop</span>
+                        <span class="btn-open-sub"></span>
+                    </a>
+                    <div id="dropdown-menu-five" class="collapse">
+                        <ul class="sub-nav-menu" >
+                            <li><a href="{% url 'catalog' %}" class="sub-nav-link">All Product</a></li>
+                        </ul>
+                    </div>
+
+                </li>
+                <li class="nav-mb-item">
+                    <a href="#dropdown-menu-three" class="collapsed mb-menu-link current" data-bs-toggle="collapse" aria-expanded="true" aria-controls="dropdown-menu-three">
+                        <span>Products</span>
+                        <span class="btn-open-sub"></span>
+                    </a>
+                    <div id="dropdown-menu-three" class="collapse">
+                        <ul class="sub-nav-menu" id="sub-menu-navigation">
+                            <li>
+                                <a href="#sub-product-one" class="sub-nav-link collapsed"  data-bs-toggle="collapse" aria-expanded="true" aria-controls="sub-product-one">
+                                    <span> Clothing Product </span>
+                                    <span class="btn-open-sub"></span>
+                                </a>
+                                <div id="sub-product-one" class="collapse">
+                                    <ul class="sub-nav-menu sub-menu-level-2">
+
+                                      <li><a href="" class="menu-link-text link"></a></li>
+
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-mb-item">
+                    <a href="#dropdown-menu-four" class="collapsed mb-menu-link current" data-bs-toggle="collapse" aria-expanded="true" aria-controls="dropdown-menu-four">
+                        <span>Pages</span>
+                        <span class="btn-open-sub"></span>
+                    </a>
+                    <div id="dropdown-menu-four" class="collapse">
+                        <ul class="sub-nav-menu" id="sub-menu-navigation">
+                            <li><a href="{% url 'about_us' %}" class="sub-nav-link">About us</a></li>
+                            <li><a href="{% url 'brands' %}" class="sub-nav-link line-clamp">Brands<div class="demo-label"><span class="demo-new">New</span></div></a></li>
+                            <li><a href="{% url 'contact' %}" class="sub-nav-link">Contact 1</a></li>
+                            <li><a href="{% url 'faq' %}" class="sub-nav-link">FAQ 01</a></li>
+                            <li><a href="{% url 'our_store' %}" class="sub-nav-link">Our store</a></li>
+                            <li><a href="store-locations.html" class="sub-nav-link">Store locator</a></li>
+                            <li><a href="timeline.html" class="sub-nav-link line-clamp">Timeline<div class="demo-label"><span class="demo-new">New</span></div></a></li>
+                            <li><a href="{% url 'cart' %}" class="sub-nav-link line-clamp">View cart</a></li>
+                            <li><a href="{% url 'checkout' %}" class="sub-nav-link line-clamp">Check out</a></li>
+                            <li><a href="{% url 'payment_complete' %}" class="sub-nav-link line-clamp">Payment Completed</a></li>
+                            <li><a href="{% url 'payment_failure' %}" class="sub-nav-link line-clamp">Payment Failure</a></li>
+                            <li><a href="#sub-account" class="sub-nav-link collapsed"  data-bs-toggle="collapse" aria-expanded="true" aria-controls="sub-account">
+                                <span>My Account</span>
+                                <span class="btn-open-sub"></span>
+                                </a>
+                                <div id="sub-account" class="collapse">
+                                    <ul class="sub-nav-menu sub-menu-level-2">
+                                        <li><a href="{% url 'account' %}" class="sub-nav-link">My account</a></li>
+                                        <li><a href="{% url 'account_orders' %}" class="sub-nav-link">My order</a></li>
+                                        <li><a href="{% url 'account_address' %}" class="sub-nav-link">My address</a></li>
+                                        <li><a href="{% url 'account_edit' %}" class="sub-nav-link">My account details</a></li>
+                                        <li><a href="{% url 'account_wishlist' %}" class="sub-nav-link">My wishlist</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li><a href="{% url 'invoice' %}" class="sub-nav-link line-clamp">Invoice</a></li>
+                            <li><a href="404.html" class="sub-nav-link line-clamp">404</a></li>
+                        </ul>
+                    </div>
+
+                </li>
+                <li class="nav-mb-item">
+                    <a href="#dropdown-menu-five" class="collapsed mb-menu-link current" data-bs-toggle="collapse" aria-expanded="true" aria-controls="dropdown-menu-five">
+                        <span>Blog</span>
+                        <span class="btn-open-sub"></span>
+                    </a>
+                    <div id="dropdown-menu-five" class="collapse">
+                        <ul class="sub-nav-menu" >
+                            <li><a href="blog-list.html" class="sub-nav-link">Blog list</a></li>
+                            <li><a href="blog-detail.html" class="sub-nav-link">Single Post</a></li>
+                        </ul>
+                    </div>
+
+                </li>
+            </ul>
+            <div class="mb-other-content">
+                <div class="d-flex group-icon">
+                    <a href="wishlist.html" class="site-nav-icon"><i class="icon icon-heart"></i>Wishlist</a>
+                    <a href="home-search.html" class="site-nav-icon"><i class="icon icon-search"></i>Search</a>
+                </div>
+                <div class="mb-notice">
+                    <a href="contact-1.html" class="text-need">Need help ?</a>
+                </div>
+                <ul class="mb-info">
+                    <li>Address: 1234 Fashion Street, Suite 567, <br> New York, NY 10001</li>
+                    <li>Email: <b>info@fashionshop.com</b></li>
+                    <li>Phone: <b>(212) 555-1234</b></li>
+                </ul>
+            </div>
+        </div>
+        <div class="mb-bottom">
+            <a href="login.html" class="site-nav-icon"><i class="icon icon-account"></i>Login</a>
+            <div class="bottom-bar-language">
+                <div class="tf-currencies">
+                    <select class="image-select center style-default type-currencies">
+                        <option data-thumbnail="images/country/fr.svg">EUR <span>€ | France</span></option>
+                        <option data-thumbnail="images/country/de.svg">EUR <span>€ | Germany</span></option>
+                        <option selected data-thumbnail="images/country/us.svg">USD <span>$ | United States</span></option>
+                        <option data-thumbnail="images/country/vn.svg">VND <span>₫ | Vietnam</span></option>
+                    </select>
+                </div>
+                <div class="tf-languages">
+                    <select class="image-select center style-default type-languages">
+                        <option>English</option>
+                        <option>العربية</option>
+                        <option>简体中文</option>
+                        <option>اردو</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /mobile menu -->

@@ -1,0 +1,204 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+        <!-- Header -->
+       {% include 'includes/hader.html' %}
+        <!-- page-title -->
+        <div class="tf-page-title">
+            <div class="container-full">
+              {% if 'search' in request.path %}
+               <div class="heading text-center">New Arrival</div>
+                 {% else %}
+                 <h8 class="title-page">Our Store</h8>
+                   {% endif %}
+                <p class="text-center text-2 text_black-2 mt_5">Shop through our latest selection of Fashion</p>
+            </div>
+        </div>
+        <!-- /page-title -->
+
+        <!-- Section Product -->
+        <section class="flat-spacing-2">
+            <div class="container">
+                <div class="tf-shop-control grid-3 align-items-center">
+                    <div class="tf-control-filter">
+                        <a href="#filterShop" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft" class="tf-btn-filter"><span class="icon icon-filter"></span><span class="text">Filter</span></a>
+                    </div>
+                    <ul class="tf-control-layout d-flex justify-content-center">
+                        <li class="tf-view-layout-switch sw-layout-2" data-value-grid="grid-2">
+                            <div class="item"><span class="icon icon-grid-2"></span></div>
+                        </li>
+                        <li class="tf-view-layout-switch sw-layout-3" data-value-grid="grid-3">
+                            <div class="item"><span class="icon icon-grid-3"></span></div>
+                        </li>
+                        <li class="tf-view-layout-switch sw-layout-4 active" data-value-grid="grid-4">
+                            <div class="item"><span class="icon icon-grid-4"></span></div>
+                        </li>
+                        <li class="tf-view-layout-switch sw-layout-5" data-value-grid="grid-5">
+                            <div class="item"><span class="icon icon-grid-5"></span></div>
+                        </li>
+                        <li class="tf-view-layout-switch sw-layout-6" data-value-grid="grid-6">
+                            <div class="item"><span class="icon icon-grid-6"></span></div>
+                        </li>
+                    </ul>
+                    <div class="tf-control-sorting d-flex justify-content-end">
+                        <div class="tf-dropdown-sort" data-bs-toggle="dropdown">
+                            <div class="btn-select">
+                                <span class="text-sort-value">Featured</span>
+                                <span class="icon icon-arrow-down"></span>
+                            </div>
+                            <div class="dropdown-menu">
+                                <div class="select-item active">
+                                    <span class="text-value-item">Featured</span>
+                                </div>
+                                <div class="select-item">
+                                    <span class="text-value-item">Best selling</span>
+                                </div>
+                                <div class="select-item">
+                                    <span class="text-value-item">Alphabetically, A-Z</span>
+                                </div>
+                                <div class="select-item">
+                                    <span class="text-value-item">Alphabetically, Z-A</span>
+                                </div>
+                                <div class="select-item">
+                                    <span class="text-value-item">Price, low to high</span>
+                                </div>
+                                <div class="select-item">
+                                    <span class="text-value-item">Price, high to low</span>
+                                </div>
+                                <div class="select-item">
+                                    <span class="text-value-item">Date, old to new</span>
+                                </div>
+                                <div class="select-item">
+                                    <span class="text-value-item">Date, new to old</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="wrapper-control-shop">
+                    <div class="meta-filter-shop"></div>
+                    <div class="grid-layout wrapper-shop" data-grid="grid-4">
+                        {% for product in products %}
+                        <!-- card product 1 -->
+                        <div class="card-product" data-price="16.95" data-color="orange black white">
+                            <div class="card-product-wrapper">
+                                <a href="{{ product.get_url }}" class="product-img">
+                                    <img class="lazyload img-product" data-src="{{product.images.url}}" src="{{product.images.url}}" alt="image-product">
+                                    <img class="lazyload img-hover" data-src="{{product.images.url}}" src="{{product.images.url}}" alt="image-product">
+                                </a>
+                                <div class="list-product-btn absolute-2">
+                                    <a href="{% url 'add_cart' product.id %}" class="box-icon bg_white quick-add tf-btn-loading">
+                                        <span class="icon icon-bag"></span>
+                                        <span class="tooltip">Quick Add</span>
+                                    </a>
+                                    <a href="{% url 'add_wishlist' product.id %}" class="box-icon bg_white wishlist btn-icon-action">
+                                        <span class="icon icon-heart"></span>
+                                        <span class="tooltip">Add to Wishlist</span>
+                                        <span class="icon icon-delete"></span>
+                                    </a>
+                                    <a href="{{ product.get_url }}" class="box-icon bg_white quickview tf-btn-loading">
+                                        <span class="icon icon-view"></span>
+                                        <span class="tooltip">Quick View</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="card-product-info">
+                                <a href="{{ product.get_url }}" class="title link">{{product.product_name}}</a>
+                                <span class="price">${{product.price}}</span>
+
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- pagination -->
+
+                    <nav class="mt-4" aria-label="Page navigation sample">
+                  	{% if products.has_other_pages %}
+                  	  <ul class="pagination justify-content-center">
+                  			{% if products.has_previous %}
+                  	    <li class="page-item"><a class="page-link" href="?page={{products.previous_page_number}}">Previous</a></li>
+                  			{% else %}
+                  			<li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                  			{% endif %}
+
+                  			{% for i in products.paginator.page_range %}
+                  				{% if products.number == i %}
+                  	    		<li class="page-item active"><a class="page-link" href="#">{{i}}</a></li>
+                  				{% else %}
+                  					<li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+                  				{% endif %}
+                  	    {% endfor %}
+
+                  			{% if products.has_next %}
+                  	    	<li class="page-item"><a class="page-link" href="?page={{products.next_page_number}}">Next</a></li>
+                  			{% else %}
+                  				<li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+                  			{% endif %}
+                  	  </ul>
+                  	{% endif %}
+                  </nav>
+                </div>
+
+            </div>
+        </section>
+        <!-- /Section Product -->
+
+        <!-- footer -->
+         {% include 'includes/footer.html' %}
+        <!-- /footer -->
+
+    </div>
+
+    <!-- -->
+ {% include 'includes/gotop.html' %}
+    <!-- /gotop -->
+
+
+
+
+    <!-- toolbar-bottom -->
+ {% include 'includes/toolbar_bottom.html' %}
+    <!-- /toolbar-bottom -->
+
+    <!-- Filter -->
+ {% include 'includes/filter.html' %}
+    <!-- End Filter -->
+
+    <!-- modalDemo -->
+ {% include 'includes/modalDemo.html' %}
+    <!-- /modalDemo -->
+
+    <!-- canvasSearch -->
+ {% include 'includes/canvasSearch.html' %}
+    <!-- /canvasSearch -->
+
+    <!-- toolbarShopmb -->
+ {% include 'includes/toolbarShopmb.html' %}
+    <!-- /toolbarShopmb -->
+
+    <!-- modal login -->
+ {% include 'includes/modal_login.html' %}
+    <!-- /modal login -->
+
+    <!-- shoppingCart -->
+ {% include 'includes/shoppingCart.html' %}
+    <!-- /shoppingCart -->
+
+    <!-- modal compare -->
+ {% include 'includes/modalcompare.html' %}
+    <!-- /modal compare -->
+
+    <!-- modal quick_add -->
+ {% include 'includes/quick_add.html' %}
+    <!-- /modal quick_add -->
+
+    <!-- modal quick_view -->
+ {% include 'includes/quick_view.html' %}
+    <!-- /modal quick_view -->
+
+    <!-- modal find_size -->
+ {% include 'includes/find_size.html' %}
+    <!-- /modal find_size -->
+
+{% endblock %}

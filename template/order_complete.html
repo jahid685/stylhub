@@ -1,0 +1,116 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+
+<!-- Header -->
+{% include 'includes/hader.html' %}
+<!-- /Header -->
+
+<body class="wrapper-invoice">
+    <section class="invoice-section">
+        <div class="cus-container2">
+            <div class="top">
+                <div class="container" style="margin-top: 50px;">
+                    <center><i class="fas fa-check-circle" style="font-size: 72px;margin-bottom: 20px;color: #28A745;"></i></center>
+                    <h2 class="text-center">Payment Successful</h2>
+                  <br>
+                  <div class="text-center">
+                    <a href="#" class="tf-btn btn-fill animate-hover-btn">
+                        Print this invoice
+                    </a>
+                    <a href="{% url 'store' %}" class="tf-btn btn-fill animate-hover-btn">
+                        Shop more
+                    </a>
+                  </div>
+                </div>
+            </div>
+            <div class="box-invoice">
+                <div class="header">
+                    <div class="wrap-top">
+                        <div class="box-left">
+                            <a href="index.html">
+                                <img src="/statc/images/logo/logo.svg" alt="logo" class="logo">
+                            </a>
+                        </div>
+                        <div class="box-right">
+                            <div class="d-flex justify-content-between align-items-center flex-wrap">
+                                <div class="title">Invoice #</div>
+                                <span class="code-num">0043128641</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wrap-date">
+                        <div class="box-left">
+                            <label for="">Invoice date:</label>
+                            <span class="date">03/10/2024</span>
+                        </div>
+                        <div class="box-right">
+                            <label for="">Due date:</label>
+                            <span class="date">03/10/2024</span>
+                        </div>
+                    </div>
+                    <div class="wrap-info">
+                        <div class="box-left">
+                            <div class="title"></div>
+                            <div class="sub"><strong>Order</strong> #{{order_number}}</div>
+                            <div class="sub"><strong>Transaction ID</strong> {{transID}}</div>
+                            <p class="desc"><strong>Status:</strong>{{payment.status}}</p>
+                        </div>
+                        <div class="box-right">
+                            <div class="title">Customer</div>
+                            <div class="sub">{{order.full_name}}</div>
+                            <p class="desc">{{order.full_address}}<br> {{order.city}}, {{order.state}}</p>
+                        </div>
+                    </div>
+                    <div class="wrap-table-invoice">
+                        <table class="invoice-table">
+                            <thead>
+                                <tr class="title">
+                                    <th>Description</th>
+                                    <th>Price</th>
+                                    <th>VAT</th>
+                                    <th>Sub Total</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                              {% for item in ordered_products %}
+                                <tr class="content">
+                                    <td>{{item.product.product_name}}</td>
+                                    <td>${{item.product_price}} USD</td>
+                                    <td>${{order.tax}} USD</td>
+                                    <td>${{subtotal}} USD</td>
+                                </tr>
+                              {% endfor %}
+                                <tr class="content">
+                                    <td class="total">Total Price</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="total">${{order.order_total}} USD</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <div class="footer">
+                    <ul class="box-contact">
+                        <li>www.ecomus.com</li>
+                        <li>invoice@ecomus.com</li>
+                        <li>(123) 123-456</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- footer -->
+    <!-- Header -->
+    {% include 'includes/footer.html' %}
+    <!-- /Header -->
+    <!-- /footer -->
+
+
+{% endblock %}

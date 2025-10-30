@@ -1,0 +1,61 @@
+<div class="offcanvas offcanvas-start canvas-filter" id="filterShop">
+    <div class="canvas-wrapper">
+        <header class="canvas-header">
+            <div class="filter-icon">
+                <span class="icon icon-filter"></span>
+                <span>Filter</span>
+            </div>
+            <span class="icon-close icon-close-popup" data-bs-dismiss="offcanvas" aria-label="Close"></span>
+        </header>
+        <div class="canvas-body">
+            <div class="widget-facet wd-categories">
+                <div class="facet-title" data-bs-target="#categories" data-bs-toggle="collapse" aria-expanded="true" aria-controls="categories">
+                    <span>Product categories</span>
+                    <span class="icon icon-arrow-up"></span>
+                </div>
+                <div id="categories" class="collapse show">
+                    <ul class="list-categoris current-scrollbar mb_36">
+                        {% for category in links %}
+                        <li class="cate-item"><a href="{{ category.get_url }}"><span>{{ category.category_name }}</span></a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <form action="#" id="facet-filter-form" class="facet-filter-form">
+                <div class="widget-facet">
+                    <div class="facet-title" data-bs-target="#price" data-bs-toggle="collapse" aria-expanded="true" aria-controls="price">
+                        <span>Price</span>
+                        <span class="icon icon-arrow-up"></span>
+                    </div>
+                    <div id="price" class="collapse show">
+                        <div class="widget-price filter-price">
+                            <div class="tow-bar-block">
+                                <div class="progress-price"></div>
+                            </div>
+                            <div class="range-input">
+                                <input class="range-min" type="range" min="0" max="300" value="0"/>
+                                <input class="range-max" type="range" min="0" max="300" value="300"/>
+                            </div>
+                            <div class="box-title-price">
+                                <span class="title-price">Price :</span>
+                                <div class="caption-price">
+                                    <div>
+                                        <span>$</span>
+                                        <span class="min-price">0</span>
+                                    </div>
+                                    <span>-</span>
+                                    <div>
+                                        <span>$</span>
+                                        <span class="max-price">300</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>

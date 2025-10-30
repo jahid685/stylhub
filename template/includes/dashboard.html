@@ -1,0 +1,13 @@
+<div class="col-lg-3">
+    <div class="wrap-sidebar-account">
+        <ul class="my-account-nav">
+            <li><span class="my-account-nav-item active"><a href="{% url 'account' %}">Dashboard</a></span></li>
+            <li><a href="{% url 'account_orders' %}" class="my-account-nav-item">Orders</a></li>
+            <li><a href="{% url 'account_address' %}" class="my-account-nav-item">Address</a></li>
+            <li><a href="{% url 'account_edit' %}" class="my-account-nav-item">Account Details</a></li>
+            <li><a href="{% url 'account_wishlist' %}" class="my-account-nav-item">Wishlist</a></li>
+            <li><a href="{% url 'change_password' %}" class="my-account-nav-item">change password</a></li>
+            <li><a href="{% url 'logout' %}" class="my-account-nav-item">Logout</a></li>
+        </ul>
+    </div>
+</div>

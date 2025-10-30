@@ -1,0 +1,235 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+        <!-- Header -->
+       {% include 'includes/hader.html' %}
+        <!-- /Header -->
+
+        <!-- page-title -->
+        <div class="tf-page-title">
+            <div class="container-full">
+                <div class="heading text-center">Check Out</div>
+            </div>
+        </div>
+        <!-- /page-title -->
+
+        <!-- page-cart -->
+        <section class="flat-spacing-11">
+            <div class="container">
+                <div class="tf-page-cart-wrap layout-2">
+                    <div class="tf-page-cart-item">
+                        <h5 class="fw-5 mb_20">Billing details</h5>
+                        <form class="form-checkout" action="{% url 'place_order' %}" method="POST">
+                          {% csrf_token %}
+                            <div class="box grid-2">
+                              <fieldset class="fieldset">
+                                  <label for="first-name">First Name</label>
+                                  <input class="form-control"  type="text" id="first-name" placeholder="Themesflat" name="first_name">
+                                    {{form.first_name}}
+                              </fieldset>
+                              <fieldset class="fieldset">
+                                  <label for="last-name">Last Name</label>
+                                  <input class="form-control"  type="text" id="last-name" name="last_name">
+                                   {{form.last_name}}
+                              </fieldset>
+                            </div>
+                            <fieldset class="box fieldset">
+                                <label for="city">country</label>
+                                <input  class="form-control" type="text" id="city" name="country">
+                                {{form.country}}
+                            </fieldset>
+                            <fieldset class="box fieldset">
+                                <label for="city">state</label>
+                                <input  class="form-control" type="text" id="city" name="state">
+                                {{form.state}}
+                            </fieldset>
+                            <fieldset class="box fieldset">
+                                <label for="city">Town/City</label>
+                                <input class="form-control"  type="text" id="city" name="city">
+                                {{form.city}}
+                            </fieldset>
+                            <fieldset class="box fieldset">
+                                <label for="address">Address</label>
+                                <input class="form-control"  type="text" id="address" name="address_line_1">
+                                {{form.address_line_1}}
+                            </fieldset>
+                            <fieldset class="box fieldset">
+                                <label for="address">Address2</label>
+                                <input class="form-control"  type="text" id="address" name="address_line_2">
+                                {{form.address_line_2}}
+                            </fieldset>
+                            <fieldset class="box fieldset">
+                                <label for="phone">Phone Number</label>
+                                <input  class="form-control" type="number" id="phone" name="phone">
+                                {{form.phone}}
+                            </fieldset>
+                            <fieldset class="box fieldset">
+                                <label for="email">Email</label>
+                                <input  class="form-control" type="email" id="email" name="email">
+                                {{form.email}}
+                            </fieldset>
+
+                            <fieldset class="box fieldset">
+                                <label for="payment_mtehod">cash on delivery</label>
+                                <input type="radio" id="payment_mtehod" name="payment_mtehod" value="COD" checked>
+                                {{form.payment_method}}
+                            </fieldset>
+
+                            <fieldset class="box fieldset">
+                                <label for="note">Order notes (optional)</label>
+                                <textarea name="order_note" id="note"></textarea>
+                              {{form.order_note}}
+                            </fieldset>
+                        
+                              <button type="submit" name="submit" class="tf-btn radius-3 btn-fill btn-icon animate-hover-btn justify-content-center">Place order</button>
+
+                            </form>
+                    </div>
+                    <div class="tf-page-cart-footer">
+                        <div class="tf-cart-footer-inner">
+                            <h5 class="fw-5 mb_20">Your order</h5>
+                            {% for cart_item in cart_items %}
+                            <form class="tf-page-cart-checkout widget-wrap-checkout">
+                              <ul class="wrap-checkout-product">
+                                 <li class="checkout-product-item">
+                                     <figure class="img-product">
+                                         <img src="{{ cart_item.product.images.url }}" alt="product">
+                                         <span class="quantity">{{cart_item.quantity}}</span>
+                                     </figure>
+                                     <div class="content">
+                                         <div class="info">
+                                             <p class="name">{{ cart_item.product.product_name }}</p>
+
+                                             <span class="variant">Brown / M</span>
+                                         </div>
+                                         <span class="price">${{ cart_item.product.price }}</span>
+                                     </div>
+                                 </li>
+                             </ul>
+                               </form>
+                        {% endfor %}
+
+                                <div class="d-flex justify-content-between line pb_20">
+                                    <h6 class="fw-5">Tax</h6>
+                                    <h6 class="total fw-5">${{tax}}USD</h6>
+                                </div>
+                                <div class="d-flex justify-content-between line pb_20">
+                                    <h6 class="fw-5">Total</h6>
+                                    <h6 class="total fw-5">${{total}}USD</h6>
+                                </div>
+
+                                <div class="wd-check-payment">
+                                    <p class="text_black-2 mb_20">Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our <a href="privacy-policy.html" class="text-decoration-underline">privacy policy</a>.</p>
+                                    <div class="box-checkbox fieldset-radio mb_20">
+                                        <input type="checkbox" id="check-agree" class="tf-check">
+                                        <label for="check-agree" class="text_black-2">I have read and agree to the website <a href="terms-conditions.html" class="text-decoration-underline">terms and conditions</a>.</label>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- page-cart -->
+
+        <!-- footer -->
+        <!-- Header -->
+       {% include 'includes/footer.html' %}
+        <!-- /Header -->
+        <!-- /footer -->
+
+    </div>
+
+    <!-- gotop -->
+    <div class="progress-wrap">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+        <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" style="transition: stroke-dashoffset 10ms linear 0s; stroke-dasharray: 307.919, 307.919; stroke-dashoffset: 286.138;"></path>
+        </svg>
+    </div>
+    <!-- /gotop -->
+
+    <!-- toolbar-bottom -->
+    <div class="tf-toolbar-bottom type-1150">
+        <div class="toolbar-item">
+            <a href="#toolbarShopmb" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft">
+                <div class="toolbar-icon">
+                    <i class="icon-shop"></i>
+                </div>
+                <div class="toolbar-label">Shop</div>
+            </a>
+        </div>
+
+        <div class="toolbar-item">
+            <a href="#canvasSearch" data-bs-toggle="offcanvas" aria-controls="offcanvasLeft">
+                <div class="toolbar-icon">
+                    <i class="icon-search"></i>
+                </div>
+                <div class="toolbar-label">Search</div>
+            </a>
+        </div>
+        <div class="toolbar-item">
+            <a href="#login" data-bs-toggle="modal">
+                <div class="toolbar-icon">
+                    <i class="icon-account"></i>
+                </div>
+                <div class="toolbar-label">Account</div>
+            </a>
+        </div>
+        <div class="toolbar-item">
+            <a href="wishlist.html">
+                <div class="toolbar-icon">
+                    <i class="icon-heart"></i>
+                    <div class="toolbar-count">0</div>
+                </div>
+                <div class="toolbar-label">Wishlist</div>
+            </a>
+        </div>
+        <div class="toolbar-item">
+            <a href="#shoppingCart" data-bs-toggle="modal">
+                <div class="toolbar-icon">
+                    <i class="icon-bag"></i>
+                    <div class="toolbar-count">1</div>
+                </div>
+                <div class="toolbar-label">Cart</div>
+            </a>
+        </div>
+    </div>
+    <!-- /toolbar-bottom -->
+
+    <!-- modalDemo -->
+ {% include 'includes/modalDemo.html' %}
+    <!-- /modalDemo -->
+
+    <!-- canvasSearch -->
+ {% include 'includes/canvasSearch.html' %}
+    <!-- /canvasSearch -->
+
+    <!-- toolbarShopmb -->
+ {% include 'includes/toolbarShopmb.html' %}
+    <!-- /toolbarShopmb -->
+
+    <!-- modal login -->
+ {% include 'includes/modal_login.html' %}
+    <!-- /modal login -->
+
+    <!-- shoppingCart -->
+ {% include 'includes/shoppingCart.html' %}
+    <!-- /shoppingCart -->
+
+    <!-- modal compare -->
+ {% include 'includes/modalcompare.html' %}
+    <!-- /modal compare -->
+
+    <!-- modal quick_add -->
+ {% include 'includes/quick_add.html' %}
+    <!-- /modal quick_add -->
+
+    <!-- modal quick_view -->
+ {% include 'includes/quick_view.html' %}
+    <!-- /modal quick_view -->
+
+    <!-- modal find_size -->
+ {% include 'includes/find_size.html' %}
+    <!-- /modal find_size -->
+
+{% endblock %}
